@@ -1,0 +1,98 @@
+/* --- Tutorial Styles --- */
+
+/* The main overlay that darkens the background */
+#tutorial-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20000; /* Ensures it's on top of everything */
+    transition: opacity 0.3s ease;
+}
+
+/* The box containing the tutorial text and navigation */
+#tutorial-box {
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 20004; /* Above the highlight */
+    border: 2px solid #333;
+    font-family: Arial, sans-serif;
+}
+
+#tutorial-box h3 {
+    margin-top: 0;
+    color: #333;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+}
+
+#tutorial-box p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Navigation controls for the tutorial */
+.tutorial-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.tutorial-nav button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tutorial-nav button:hover {
+    background-color: #0056b3;
+}
+
+#tutorial-close {
+    background-color: #dc3545;
+}
+
+#tutorial-close:hover {
+    background-color: #c82333;
+}
+
+/* This class is added to the element being highlighted */
+.tutorial-highlight {
+    position: relative;
+    z-index: 20002 !important; /* Above the overlay, below the text box */
+    /* A subtle shadow helps to visually "lift" the element off the dark overlay,
+       making it feel more prominent and less flat. */
+    box-shadow: 0 0 24px #007073;
+    border-radius: inherit; /* Ensures the highlight matches the element's own corners */
+}
+
+.tutorial-highlight2 {
+    position: relative;
+    z-index: 20001 !important; /* Above the overlay, below the text box */
+    /* A subtle shadow helps to visually "lift" the element off the dark overlay,
+       making it feel more prominent and less flat. */
+    box-shadow: 0 0 24px #007073 !important;
+    border-radius: inherit; /* Ensures the highlight matches the element's own corners */
+}
+
+/* Override mobile-specific hiding of custom-popup ONLY during the specific
+   tutorial step where map clicking is enabled. */
+body.tutorial-map-click-active #custom-popup {
+    /* Ensure it's visible and can be positioned by JS */
+    display: flex !important;
+    pointer-events: none !important; /* Ensure it can receive clicks */
+}

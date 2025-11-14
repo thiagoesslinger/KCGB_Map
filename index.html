@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>Keep Coral Gables Beautiful</title>
+    <!-- style.css for entire website -->
+
+    <!-- GIS styling -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css" />
+
+    <!-- Custom styles - MUST be loaded AFTER the default GIS styles to override them -->
+    <link rel="stylesheet" href="./static/style.css" />
+
+    <!-- Tutorial styles -->
+    <link rel="stylesheet" href="./static/tutorial.css" />
+
+    <!-- Google Fonts Import for a consistent, web-safe 'Impact'-like font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- GIS JavaScript -->
+    <script src="https://js.arcgis.com/4.29/"></script>
+</head>
+
+<body>
+    <nav
+        id="navbar"
+        class="navbar navbar-expand-lg shadow-sm w-100"
+        >
+        <div class="logo-container">
+            <a href="https://www.coralgables.com/" class="d-flex align-items-center" target="_blank" rel="noopener noreferrer">
+                <img
+                    src="./CG_Logo_white.png"
+                    alt="City of Coral Gables Logo"
+                    class="header__logo"
+                />
+            </a>
+        </div>
+        <h2
+            id="mainTitle"
+            class="text-white"
+        >
+        Keep Coral Gables Beautiful
+        </h2>
+        <div class="nav-links">
+            <a id="help-popup-btn" href="#" title="Help">
+                <i class="fas fa-question-circle nav-icon"></i>
+                <span class="link-text">Help</span>
+            </a>
+            <a id="KCGBLink" href="https://www.coralgables.com/department/sustainability/keep-coral-gables-beautiful" target="_blank" rel="noopener noreferrer" title="KCGB">
+                <i class="fas fa-plus-circle nav-icon"></i>
+                <span class="link-text">Learn More</span>
+            </a>
+            <a id="KCGBLink" href="https://cggisw.coralgables.com/cglittering/" target="_blank" rel="noopener noreferrer" title="Litter index">
+                <i class="fas fa-recycle nav-icon"></i>
+                <span class="link-text">City Litter Index</span>
+            </a>
+            <a id="SmartCityLink" href="https://coral-gables-smart-city-hub-2-cggis.hub.arcgis.com/" target="_blank" rel="noopener noreferrer" title="Smart City Hub">
+                <i class="fas fa-network-wired nav-icon"></i>
+                <span class="link-text">Smart City Hub</span>
+            </a>
+            <a id="start-tutorial-btn" href="#">START TUTORIAL</a>
+        </div>
+        <button id="navbar-toggler-btn" class="navbar-toggler" aria-label="Toggle navigation">&#9776;</button>
+    </nav>
+
+    <button id="toggle-events-sidebar" class="sidebar-toggle-btn left" aria-label="Toggle Events and Programs Sidebar">MAP TOOL</button>
+    <div id="sidebar">
+        <h1 class="sidebar-header">EVENTS & PROGRAMS</h1>
+        <div class="sidebar-content">
+            <!--PROGRAMS-->
+            <div class="collapsible-container" style="border: 2px solid #000000; border-radius: 5px; margin-top: 10px;color: rgb(85, 158, 95);">
+                <div class="collapsible-header" onclick="toggleCollapse(this)">
+                    Ongoing programs
+                    <span class="toggle-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="button-group">
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="BATTERY_RECYCLING"> Battery Recycling</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="CLPR"> Cigarette Litter Prevention & Recycling</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="LITTER_KIT"> Litter Kit Collection</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="NEXTREX"> NexTrex Plastic Bag & Film Recycling</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EVENTS -->
+            <div class="collapsible-container" style="border: 2px solid #000000; border-radius: 5px; margin-top: 10px;color: rgb(85, 158, 95);">
+                <div class="collapsible-header" onclick="toggleCollapse(this)">
+                    Annual events
+                    <span class="toggle-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="button-group">
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="XMAS_TREE_RECYCLING"> Christmas Tree Recycling</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="DOWNTOWN_CLEANUP"> Downtown Cleanup</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="FILM_SCREENINGS"> Film Screenings</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="ICC"> International Coastal Cleanup</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="PARKING_DAY"> Park(ing) Day</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="POLLINATOR_PALOOZA"> Pollinator Palooza</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(85,158,95);color:white;border-radius:5px;font-family:Arial" data-layer-name="RECYCLING_DRIVE_THRU"> Recycling Drive Thru</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--PAST EVENTS-->
+            <div class="collapsible-container" style="border: 2px solid #000000; border-radius: 5px; margin-top: 10px;color: rgb(198, 136, 54);">
+                <div class="collapsible-header" onclick="toggleCollapse(this)">
+                    Past events
+                    <span class="toggle-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="button-group">
+                        <div class="site">
+                            <button style="background-color:rgb(198, 136, 54);color:white;border-radius:5px;font-family:Arial" data-layer-name="CLEANUPS"> Cleanups</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(198, 136, 54);color:white;border-radius:5px;font-family:Arial" data-layer-name="INVASIVE_REMOVAL"> Invasive species removal</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(198, 136, 54);color:white;border-radius:5px;font-family:Arial" data-layer-name="PLANTING"> Planting</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--PUBLIC TRANSPORTATION-->
+            <div class="collapsible-container" style="border: 2px solid #000000; border-radius: 5px; margin-top: 10px;color: rgb(41, 40, 134);">
+                <div class="collapsible-header" onclick="toggleCollapse(this)">
+                    Public transportation
+                    <span class="toggle-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="button-group">
+                        <div class="site">
+                            <button style="background-color:rgb(41,40,134);color:white;border-radius:5px;font-family:Arial" data-layer-name="CG_Trolley"> Coral Gables Trolley</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(41,40,134);color:white;border-radius:5px;font-family:Arial" data-layer-name="CG_MetroRail"> MetroRail</button></div>
+                        <div class="site">
+                            <button style="background-color:rgb(41,40,134);color:white;border-radius:5px;font-family:Arial" data-layer-name="CG_Buses"> Miami-Dade Bus</button></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- This closes .tab-content -->
+    </div>
+
+
+    <div class="main-content">
+        <!-- GIS stuff -->
+        <div id="viewDiv" style="height: 94vh; width: 75vw"></div>
+
+        <!-- Right Sidebar for Programs and Events -->
+        <div id="programsSidebar">
+            {{ programs_html|safe }}
+        </div>
+    </div>
+
+    <!-- Custom Popup Container for map clicks. Styled to match other widgets. -->
+    <div id="custom-popup">
+        <!-- Content is set dynamically by JavaScript -->
+    </div>
+
+
+    <!-- Tutorial Container -->
+    <div id="tutorial-overlay"></div>
+    <div id="tutorial-box">
+        <h3>Tutorial Title</h3>
+        <p>Tutorial step description goes here.</p>
+        <div class="tutorial-nav">
+            <button id="tutorial-prev" style="margin-right: 2px;">Previous</button>
+            <span id="tutorial-step-counter"></span>
+            <button id="tutorial-next">Next</button>
+            <button id="tutorial-close" style="margin-left: auto;">Close</button>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="helpModalClose">&times;</span>
+            <h2>About the KCGB Interactive Map</h2>
+            <p>The Keep Coral Gables Beautiful program (KCGB) is an affiliate program of Keep America Beautiful for the City of Coral Gables. This web map application is a tool to visualize and manage the city's beautification efforts. All events and programs related to this initiative are accessible through this platform.</p>
+            <h3>How to Use This Application</h3>
+            <ul>
+                <li><strong>Explore the Map:</strong> The main map displays all event and program locations for KCGB.</li>
+                <li><strong>Search:</strong> Use the search bar to find a specific address.</li>
+                <li><strong>Events/Programs Information:</strong> Click on an icon on the map to see its name. You will also see relevant details about the event/program and an option to view more information.</li>
+                <li><strong>Sidebar:</strong> The "Events and Programs" sidebar provides a list of all events and programs by category. You can click on any item to see more details about specific KCGB initiatives.</li>
+                <li><strong>Tutorial:</strong> For a guided tour, click the "START TUTORIAL" button in the navigation bar. Please note that this feature is not available on mobile devices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--JavaScript for entire website -->
+    <script src="./static/main.js"></script>
+
+    <!-- Tutorial JavaScript -->
+    <script src="./static/tutorial.js"></script>
+</body>
+
+</html>
