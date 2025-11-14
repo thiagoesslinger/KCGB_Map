@@ -595,7 +595,7 @@ body {
 }
 
 /* Adjustments for SMALL COMPUTER SCREENS / IPADS */
-@media (max-width: 1250px) {
+@media (max-width: 1300px) {
     .nav-links .link-text {
         display: none;
     }
@@ -615,7 +615,7 @@ body {
 }
 
 /* Adjustments for MOBILE VERSION */
-@media (max-width: 950px), (orientation: portrait) {
+@media (max-width: 1000px), (orientation: portrait) {
     html, body {
         overflow: hidden !important; /* Prevent scrolling on the entire page */
     } 
@@ -756,3 +756,4 @@ body {
     }
 
 }
+
