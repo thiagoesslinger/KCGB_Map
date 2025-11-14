@@ -437,9 +437,8 @@ html, body, #viewDiv { height: 100%; width: 100%; margin: 0; padding: 0; z-index
 
 /* Styles for the dynamically added upcoming events section */
 #upcoming-events-container {
-    margin-top: 1.5em;
-    border-top: 1px solid #ddd;
-    padding-top: 1.5em;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
 }
 
 .event-item {
@@ -755,4 +754,5 @@ body {
         content: "KCGB Map";
         font-size: 25px; /* Restore the font size for the new text */
     }
+
 }
